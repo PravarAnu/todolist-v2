@@ -10,7 +10,8 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
-mongoose.connect("mongodb+srv://admin-pravar:admin123@cluster0.kl1ttvq.mongodb.net/todolistDB", {useNewUrlParser: true});
+
+mongoose.connect(`mongodb+srv://${process.env.CLIENT_ID}:${process.env.API_KEY}@cluster0.kl1ttvq.mongodb.net/todolistDB` , {useNewUrlParser: true});
 
 const itemsSchema = {
   name: String
